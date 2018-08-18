@@ -7,7 +7,7 @@
             <title>Login</title>
         </head>
         <body>
-            <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
+            <form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
                 <table align="center">
                     <tr>
                         <td>
@@ -38,7 +38,7 @@
                         </td>
                     </tr>
                 </table>
-            </form:form>
+            </form>
             <table align="center">
                 <tr>
                     <td style="font-style: italic; color: red;">${message}</td>

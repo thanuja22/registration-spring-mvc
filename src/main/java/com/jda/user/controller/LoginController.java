@@ -34,9 +34,9 @@ public class LoginController
 	    User user = userService.validateUser(login);
 	    if (null != user) {
 	   	 HttpSession session=request.getSession();
-	   	 session.setAttribute("user",user);
+	   	 session.setAttribute("user",user.getFirstname());
 	   	 session.setMaxInactiveInterval(10);
-	    mav = new ModelAndView("welcome");
+	    mav = new ModelAndView("redirect:/welcome");
 	    mav.addObject("firstname", user.getFirstname());
 	    } else {
 	   	 

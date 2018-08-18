@@ -6,7 +6,7 @@
             <title>Registration</title>
         </head>
         <body>
-            <form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
+            <form id="regForm" modelAttribute="user" action="registerProcess" method="post">
                 <table align="center">
                     <tr>
                         <td>
@@ -77,6 +77,6 @@
                         </td>
                     </tr>
                 </table>
-            </form:form>
+            </form>
         </body>
         </html>

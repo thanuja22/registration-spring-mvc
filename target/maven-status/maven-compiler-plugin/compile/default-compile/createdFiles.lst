@@ -1,7 +1,11 @@
 com/jda/user/model/Login.class
+com/jda/user/listener/SessionListener.class
 com/jda/user/service/UserServiceImpl.class
+com/jda/user/filter/MyFilter.class
+com/jda/user/controller/WelcomeController.class
 com/jda/user/service/UserMapper.class
 com/jda/user/controller/LoginController.class
 com/jda/user/service/UserService.class
+com/jda/user/validator/UserValidation.class
 com/jda/user/controller/RegistrationController.class
 com/jda/user/model/User.class
