@@ -7,34 +7,40 @@
             <title>Login</title>
         </head>
         <body>
-            <form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
+            <form id="loginForm"  action="loginProcess" method="post">
                 <table align="center">
                     <tr>
                         <td>
-                            <form:label path="username">Username: </form:label>
+                            <label >Username: </label>
                         </td>
                         <td>
-                            <form:input path="username" name="username" id="username" />
+                            <input name="username" id="username" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <form:label path="password">Password:</form:label>
+                            <label >Password:</label>
                         </td>
                         <td>
-                            <form:password path="password" name="password" id="password" />
+                            <input name="password" id="password" />
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td align="left">
-                            <form:button id="login" name="login">Login</form:button>
+                            <button id="login" name="login">Login</button>
                         </td>
                     </tr>
                     <tr></tr>
                     <tr>
                         <td></td>
-                        <td><a href="home.jsp">Home</a>
+                        <td><a href="register.jsp">Register</a>
+                        </td>
+                        </tr>
+                    <tr></tr>
+                    <tr>
+                    <td></td>
+                        <td><a href="forgotpassword.jsp">Forgot password</a>
                         </td>
                     </tr>
                 </table>

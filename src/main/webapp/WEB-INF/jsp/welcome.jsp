@@ -7,17 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-User user=(User)session.getAttribute("user");
-%>
+
 <table>
+            
             <tr>
-                <td>Welcome <%=user.getFirstname()%></td>
+                <td>Welcome ${user}</td>
             </tr>
-            <tr>
-            </tr>
-            <tr>
-            </tr>
+           
             <tr>
                 <td><a href="home.jsp">Home</a>
                 </td>

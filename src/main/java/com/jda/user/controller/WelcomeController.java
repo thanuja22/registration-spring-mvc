@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WelcomeController {
-@RequestMapping("/Welcome")
+@RequestMapping("/welcome")
 	public ModelAndView welcomeDisplay(HttpServletRequest request,HttpServletResponse response)
 	{
 		HttpSession session=request.getSession();

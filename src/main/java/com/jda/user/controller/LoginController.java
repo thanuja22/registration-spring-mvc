@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,8 +21,9 @@ public class LoginController
 {
 	@Autowired
 	 public  UserService userService;
+	final static Logger logger=Logger.getLogger(LoginController.class);
 	
-	  @RequestMapping(value = "/login", method = RequestMethod.GET)
+	  @RequestMapping(value = "/", method = RequestMethod.GET)
 	  public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 	    ModelAndView mav = new ModelAndView("login");
 	    mav.addObject("login", new Login());
@@ -34,6 +36,10 @@ public class LoginController
 	    User user = userService.validateUser(login);
 	    if (null != user) {
 	   	 HttpSession session=request.getSession();
+	   	 
+	   	 if(logger.isDebugEnabled()){
+	   		 logger.debug("This is debug");
+	   	 }
 	   	 session.setAttribute("user",user.getFirstname());
 	   	 session.setMaxInactiveInterval(10);
 	    mav = new ModelAndView("redirect:/welcome");

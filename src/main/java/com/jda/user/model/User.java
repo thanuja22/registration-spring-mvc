@@ -9,6 +9,7 @@ public class User {
 	  private String email;
 	  private String address;
 	  private int phone;
+	  private String resetToken;
 	  public String getUsername() {
 	  return username;
 	  }
@@ -57,5 +58,13 @@ public class User {
 	  }
 	  public void setPhone(int phone) {
 	  this.phone = phone;
+	  }
+	  public String getToken()
+	  {
+		  return resetToken;
+	  }
+	  public void setToken(String resetToken)
+	  {
+		  this.resetToken=resetToken;
 	  }
 }
