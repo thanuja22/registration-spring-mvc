@@ -20,6 +20,7 @@ public class UserDaoImpl implements UserDao {
 	  DataSource datasource;
 	  @Autowired
 	  JdbcTemplate jdbcTemplate;
+	  @Autowired
 	  PasswordEncoder passwordEncoder;
 	  public void register(User user) {
 	    String sql = "insert into myusers (username,password,firstname,lastname,email,address,phone) values(?,?,?,?,?,?,?);";
@@ -29,6 +30,8 @@ public class UserDaoImpl implements UserDao {
 	    jdbcTemplate.update(sql, new Object[] { user.getUsername(),user.getPassword(),user.getFirstname(),
 	    user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
 	    }
+	  
+	  
 	    public User validateUser(Login login) {
 			
 	   String sql = "select * from myusers where username='" + login.getUsername() + "' and password='" + login.getPassword()

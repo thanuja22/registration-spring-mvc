@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jda.user.dao.UserDao;
@@ -24,15 +25,18 @@ public class UserServiceImpl implements UserService {
 	  JdbcTemplate jdbcTemplate;
 		@Autowired
 		UserDao userDao;
+		@Autowired
+		PasswordEncoder passwordEncoder;
 		@Transactional
 	  public void register(User user) {
 	    userDao.register(user);
 	    }
 	    public User validateUser(Login login) {
-	   String sql = "select * from myusers where username='" + login.getUsername() + "' and password='" + login.getPassword()
-	    + "'";
+	   String sql = "select * from myusers where username='" + login.getUsername() + "'";
 	    List<User> users = jdbcTemplate.query(sql, new UserMapper());
-	    return users.size() > 0 ? users.get(0) : null;
+	    String passwordDb=users.get(0).getPassword();
+	    boolean match=passwordEncoder.matches(login.getPassword(), passwordDb);
+	    return match? users.get(0) : null;
 	    }
 	    public User getUserbyToken(String token) {
 	 	   String sql = "select * from myusers where token='" + token 
@@ -41,6 +45,7 @@ public class UserServiceImpl implements UserService {
 	 	    return users.size() > 0 ? users.get(0) : null;
 	 	    }
 	   public void newPassword(String password,String token) {
+	   	password=passwordEncoder.encode(password);
 	   	String sql="update myusers set password='"+password +"'  where token='"+token+"'";
 			jdbcTemplate.update(sql);
 		}
