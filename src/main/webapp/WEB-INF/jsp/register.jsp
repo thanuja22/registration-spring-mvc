@@ -13,7 +13,7 @@
                             <label >Username</label>
                         </td>
                         <td>
-                            <input name="username" id="username" />
+                            <input type="text" name="username" />
                         </td>
                     </tr>
                     <tr>
@@ -21,7 +21,7 @@
                             <label >Password</label>
                         </td>
                         <td>
-                            <input  name="password" id="password" />
+                            <input  type="password" name="password" />
                         </td>
                     </tr>
                     <tr>

@@ -46,10 +46,11 @@ public class ResetPasswordController {
 	      @RequestParam ("newpassword")String password ,@RequestParam Map<String, String> requestParams) throws IOException {
 		logger.info(password);
 		System.out.println();
+		System.out.println("oipo");
 		String token = requestParams.get("resetToken");
 		ModelAndView mav = null;
 		 userService.newPassword(password, token);
-		mav= new ModelAndView("redirect:/login");
+		mav= new ModelAndView("login");
 		return mav;
 	 
 }

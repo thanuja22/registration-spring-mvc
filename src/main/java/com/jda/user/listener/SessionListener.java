@@ -1,11 +1,10 @@
 package com.jda.user.listener;
 
-import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 public class SessionListener implements HttpSessionListener 
 {
-	int session = 1;
+	/*int session = 1;
 	int c = 0;
 	int d = 0;
 
@@ -29,5 +28,5 @@ public class SessionListener implements HttpSessionListener
 		System.out.println("no.of active sessions :" + session);
 		System.out.println("number of sessions destroyed :" + d);
 	}
-
+*/
 }

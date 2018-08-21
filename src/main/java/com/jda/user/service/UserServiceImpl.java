@@ -10,20 +10,23 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.jda.user.dao.UserDao;
 import com.jda.user.model.Login;
 import com.jda.user.model.User;
 
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	  DataSource datasource;
 	  @Autowired
 	  JdbcTemplate jdbcTemplate;
-		
+		@Autowired
+		UserDao userDao;
+		@Transactional
 	  public void register(User user) {
-	    String sql = "insert into myusers values(?,?,?,?,?,?,?)";
-	    jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
-	    user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
+	    userDao.register(user);
 	    }
 	    public User validateUser(Login login) {
 	   String sql = "select * from myusers where username='" + login.getUsername() + "' and password='" + login.getPassword()

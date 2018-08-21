@@ -4,20 +4,23 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.jda.user.controller" />
+    <context:component-scan base-package="com.jda.user" />
 
-    <bean id= "userService" class="com.jda.user.service.UserServiceImpl"> </bean>
-    
+    <bean id= "userService" class="com.jda.user.service.UserServiceImpl" >
+     </bean>
+    <bean id="userDao" class="com.jda.user.dao.UserDaoImpl"></bean>
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
     <property name="dataSource" ref="datasource"/></bean>
   
-    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://10.0.0.160/db1000140"/>
-    <property name="username" value="u1000140"/>
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="jdbcUrl" value="jdbc:mysql://10.0.0.160/db1000140"/>
+    <property name="user" value="u1000140"/>
     <property name="password" value="GNh8EWriY0"/>
+    
     </bean>
     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -42,5 +45,16 @@
 			</props>
 		</property>
 	</bean>
+	<!-- Enable Annotation based Declarative Transaction Management -->
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />
+
+	<!-- Creating TransactionManager Bean, since JDBC we are creating of type 
+		DataSourceTransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource" />
+	</bean>
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 </beans>
 

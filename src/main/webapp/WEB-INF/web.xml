@@ -17,16 +17,16 @@
   <servlet-mapping>
   <servlet-name>Spring</servlet-name>
   <url-pattern>/</url-pattern></servlet-mapping>
-  <filter>
-  <filter-name>MyFilter</filter-name> <!-- mandatory -->
-  <filter-class>com.jda.user.filter.MyFilter</filter-class> <!-- mandatory -->
+  <!--  filter>
+  <filter-name>MyFilter</filter-name> mandatory
+  <filter-class>com.jda.user.filter.MyFilter</filter-class> mandatory
   </filter>
   <filter-mapping>
-  <filter-name>MyFilter</filter-name> <!-- mandatory -->
-  <url-pattern>/*</url-pattern> <!-- either url-pattern or servlet-name is mandatory -->
+  <filter-name>MyFilter</filter-name> mandatory
+  <url-pattern>/*</url-pattern> either url-pattern or servlet-name is mandatory
 
-</filter-mapping>
-  <listener>
+</filter-mapping>  -->
+  <!-- listener>
     <listener-class>com.jda.user.listener.SessionListener</listener-class>
-</listener>
+</listener>-->
 </web-app>

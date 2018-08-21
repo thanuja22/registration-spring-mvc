@@ -17,7 +17,7 @@ public class MyFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 	      throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpServletRequest req = (HttpServletRequest) request;
+		/*HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		
 		String url=req.getServletPath();
@@ -31,7 +31,7 @@ public class MyFilter implements Filter{
 				return;
 			}
 		}
-		chain.doFilter(req, res);
+		chain.doFilter(req, res);*/
 	}
 
 	

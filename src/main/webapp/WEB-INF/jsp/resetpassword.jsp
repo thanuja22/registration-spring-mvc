@@ -13,11 +13,11 @@
             	
 			<tr>
 				<td>newPassword</td>
-				<td><input type="text" name="newpassword" /></td>
+				<td><input type="password" name="newpassword" /></td>
 			</tr>
 	<tr>
 				<td>Confirm newPassword</td>
-				<td><input type="text" name="Confirm newPassword" /></td>
+				<td><input type="password" name="Confirm newPassword" /></td>
 			</tr>
 		</table>
 		<input type="submit" value="Submit" />

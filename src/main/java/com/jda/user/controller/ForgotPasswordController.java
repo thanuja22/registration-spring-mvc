@@ -38,6 +38,7 @@ public class ForgotPasswordController {
 		
 		ModelAndView   mav = new ModelAndView("forgotpassword");
 		User user=userService.forgetPassword(email);
+		System.out.println(user);
 		 if (null == user) {
 		
 			    mav.addObject("message", "User with this email is not exist");
